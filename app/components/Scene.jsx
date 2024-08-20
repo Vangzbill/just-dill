@@ -1,21 +1,29 @@
-"use client"; 
+"use client";
 
-import React from 'react'
-import { Stars } from './Stars'
+import React, { Suspense } from 'react';
+import { Stars } from './Stars';
 import Text3Ds from './Text3D';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
-import { useLoader } from '@react-three/fiber'
+import Rocket from './Rocket';
+import ReactComponent from './ReactComponent';
 
 export default function Scene() {
-  const obj = useLoader(OBJLoader, './images/earth.obj')
   return (
-    <>
+    <Suspense fallback={null}>
       <Text3Ds 
-          text="Hello, World!"
-        />
-      <Stars 
+        text="Sabilla Luthfi Rahmadhan"
+        position={[0, 0, 0]}
+        scales={0.08}
       />
-        {/* <primitive object={obj} scale={0.5} position={[0, 0, 0]} /> */}
-    </>
-  )
+      <Text3Ds 
+        text="Web Developer"
+        position={[0, -0.1, 0]}
+        scales={0.05}
+      />
+      <ReactComponent />
+      <Rocket />
+      <Stars />
+      <ambientLight intensity={1} />
+      <directionalLight position={[0, 1, 1]} intensity={1} />
+    </Suspense>
+  );
 }
