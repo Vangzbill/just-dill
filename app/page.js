@@ -133,7 +133,7 @@ const LoveTerminal = () => {
   const [text, setText] = useState('');
   const [showHeart, setShowHeart] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const terminalRef = useRef(null);
   const finalText = '> Loading love.exe...\n> Analyzing feelings...\n> Generating message...\n> Love u more';
 
@@ -182,8 +182,11 @@ const LoveTerminal = () => {
   }, [isVisible]);
 
   useEffect(() => {
+    setIsSmallScreen(window.innerWidth < 768);
+    
     const handleResize = () => setIsSmallScreen(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
+    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
