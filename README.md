@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💖 Love Page - Special Valentine Project
 
-## Getting Started
+Love Page adalah proyek spesial yang dibuat dengan **Next.js**, **React**, dan **Framer Motion** untuk merayakan kisah cinta dalam bentuk yang unik dan interaktif. Dengan elemen-elemen bertema **programmer couple**, proyek ini menghadirkan animasi menarik dan tampilan yang penuh makna.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Fitur Utama
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. **Love Message** 💌
+Pesan cinta yang diketik secara otomatis dengan efek **typing animation**, memberikan nuansa romantis dan penuh perasaan.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 2. **Love Timeline** 🕰️
+Menampilkan sejarah hubungan dalam bentuk **git log**, seperti commit penting dalam perjalanan cinta.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 3. **Love Terminal** 💻
+Tampilan terminal simulasi yang mengetikkan pesan cinta otomatis, menciptakan pengalaman unik bagi pasangan programmer.
 
-## Learn More
+### 4. **Love Roadmap** 🗺️
+Galeri momen-momen spesial dengan efek hover yang menampilkan kenangan berharga dalam hubungan.
 
-To learn more about Next.js, take a look at the following resources:
+### 5. **Love Footer** ❤️
+Bagian akhir halaman yang menyampaikan pesan manis dan dibuat dengan penuh cinta.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🛠️ Teknologi yang Digunakan
+- **Next.js** - Framework React untuk performa optimal
+- **React** - Library untuk membangun UI interaktif
+- **Framer Motion** - Animasi yang halus dan menarik
+- **Lucide Icons** - Ikon modern untuk meningkatkan estetika
+- **Tailwind CSS** - Styling yang fleksibel dan efisien
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Cara Menjalankan Proyek
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Clone repository ini**
+   ```sh
+   git clone https://github.com/Vangzbill/just-dill.git
+   cd just-dill
+   ```
+
+2. **Install dependencies**
+   ```sh
+   npm install
+   ```
+
+3. **Jalankan proyek**
+   ```sh
+   npm run dev
+   ```
+
+4. **Buka di browser**
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🎁 Spesial Untuk
+Proyek ini dibuat dengan sepenuh hati untuk **Didillll**, sebagai bentuk cinta, kenangan, dan apresiasi. Semoga halaman ini bisa menjadi pengingat indah tentang perjalanan kita! 
+
+---
+
+## 📌 Lisensi
+Proyek ini dibuat untuk tujuan personal dan tidak untuk penggunaan komersial.
+
