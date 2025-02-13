@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Dancing_Script } from "next/font/google"; // Font Romantis
+import { Dancing_Script } from "next/font/google";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"], weight: "700" });
 
@@ -23,8 +23,8 @@ const LoveMessage = () => {
 
   const [currentMessage, setCurrentMessage] = useState(0);
   const [text, setText] = useState("");
-  const fullText = "I love u Didillll 💖"; // Teks yang akan diketik
-  const speed = 100; // Kecepatan mengetik (ms)
+  const fullText = "I love u Didillll 💖"; 
+  const speed = 100; 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,20 +41,18 @@ const LoveMessage = () => {
         setText(fullText.slice(0, index));
         index++;
       } else {
-        index = 0; // Reset indeks setelah selesai
-        setText(""); // Hapus teks agar mulai ulang
+        index = 0; 
+        setText("");
       }
     };
 
     const typingInterval = setInterval(typeText, speed);
 
     return () => clearInterval(typingInterval);
-  }, [fullText]); // Memulai ulang efek setiap kali fullText selesai
+  }, [fullText]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-pink-100 to-purple-100 px-4">
-      
-      {/* Animasi Tulisan Muncul dari Kiri ke Kanan */}
       <motion.h1 
         className={`text-4xl md:text-6xl text-pink-600 ${dancingScript.className}`}
         initial={{ opacity: 0, x: -50 }}
@@ -64,7 +62,6 @@ const LoveMessage = () => {
         {text}
       </motion.h1>
 
-      {/* Kotak Pesan */}
       <div className="p-8 mt-8 rounded-lg bg-white shadow-xl max-w-2xl w-full">
         <pre className="text-lg md:text-2xl font-mono text-pink-600 whitespace-pre-wrap text-center">
           {messages[currentMessage]}
@@ -79,7 +76,7 @@ const LoveTimeline = () => {
   const timeline = [
     {
       date: "2024-07-24",
-      title: "Suka sama Didillll",
+      title: "Have an interest sama Didillll",
       description: "I've opened my heart to you"
     },
     {
@@ -136,6 +133,7 @@ const LoveTerminal = () => {
   const [text, setText] = useState('');
   const [showHeart, setShowHeart] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
   const terminalRef = useRef(null);
   const finalText = '> Loading love.exe...\n> Analyzing feelings...\n> Generating message...\n> Love u more';
 
@@ -147,10 +145,7 @@ const LoveTerminal = () => {
           setIsVisible(true);
         }
       },
-      {
-        rootMargin: '0px',
-        threshold: 0.1,
-      }
+      { rootMargin: '0px', threshold: 0.1 }
     );
 
     if (terminalRef.current) {
@@ -186,6 +181,12 @@ const LoveTerminal = () => {
     typeText();
   }, [isVisible]);
 
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-8" ref={terminalRef}>
       <div className="w-full max-w-5xl bg-black rounded-lg p-8 font-mono text-green-400 min-h-[80vh]">
@@ -195,15 +196,22 @@ const LoveTerminal = () => {
         </div>
         <div className="whitespace-pre-line text-lg leading-relaxed mb-8">{text}</div>
         {showHeart && (
-          <pre className="text-pink-500 mt-8 text-center animate-pulse text-2xl leading-loose">
+          <div className="flex justify-center items-center text-center w-full overflow-hidden">
+            {isSmallScreen ? (
+              <pre className="text-pink-500 text-[clamp(16px,6vw,32px)] font-bold">D I D I L L L 💖</pre>
+            ) : (
+              <pre className="text-pink-500 text-[clamp(10px,5vw,24px)] leading-[1.2] font-mono whitespace-pre-wrap">
 {`
 ❤️❤️❤️    ❤️❤️   ❤️❤️❤️    ❤️❤️   ❤️         ❤️         ❤️         
 ❤️    ❤️    ❤️    ❤️    ❤️    ❤️    ❤️         ❤️         ❤️         
 ❤️    ❤️    ❤️    ❤️    ❤️    ❤️    ❤️         ❤️         ❤️         
 ❤️    ❤️    ❤️    ❤️    ❤️    ❤️    ❤️         ❤️         ❤️         
 ❤️    ❤️    ❤️    ❤️    ❤️    ❤️    ❤️         ❤️         ❤️         
-❤️❤️❤️    ❤️❤️   ❤️❤️❤️    ❤️❤️    ❤️❤️❤️    ❤️❤️❤️    ❤️❤️❤️    `}
-          </pre>
+❤️❤️❤️    ❤️❤️   ❤️❤️❤️    ❤️❤️    ❤️❤️❤️    ❤️❤️❤️    ❤️❤️❤️    
+`}
+              </pre>
+            )}
+          </div>
         )}
       </div>
     </div>
